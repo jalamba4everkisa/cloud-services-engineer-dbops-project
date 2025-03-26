@@ -11,19 +11,6 @@ jobs:
       uses: actions/checkout@v2
 
     #### Добавьте шаг с Flyway-миграциями
-    - name: Debug secrets (for testing only)
-      run: |
-          secret="${{ secrets.DB_NAME }}"
-          if [ -n "$secret" ]; then
-            echo "Secret exists and has ${#secret} characters"
-            if [ "$secret" = "store" ]; then
-              echo "Secret matches expected value"
-            else
-              echo "Secret does NOT match expected value"
-            fi
-          else
-            echo "Secret is empty or undefined"
-          fi
     - name: Download and setup migration
       run: |
         curl -L -o flyway-commandline.tar.gz "https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/11.1.0/flyway-commandline-11.1.0-linux-x64.tar.gz"
