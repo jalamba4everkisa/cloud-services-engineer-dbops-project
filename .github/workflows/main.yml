@@ -12,8 +12,9 @@ jobs:
 
     #### Добавьте шаг с Flyway-миграциями
     - name: Debug secrets (for testing only)
-      if: secrets.DB_HOST
-      run: echo "DB_HOST exists"
+      run: |
+        echo "Secret exists? ${{ !secrets.DB_NAME && 'No' || 'Yes' }}"
+        echo "First 3 chars: ${${{ secrets.DB_NAME }}:0:3}"
     - name: Download and setup migration
       run: |
         curl -L -o flyway-commandline.tar.gz "https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/11.1.0/flyway-commandline-11.1.0-linux-x64.tar.gz"
