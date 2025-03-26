@@ -14,14 +14,6 @@ jobs:
     - name: Debug secrets (for testing only)
       if: secrets.DB_HOST
       run: echo "DB_HOST exists"
-      if: secrets.DB_PORT
-      run: echo "DB_PORT exists"
-      if: secrets.DB_USER
-      run: echo "DB_USER exists"
-      if: secrets.DB_PASSWORD
-      run: echo "DB_PASSWORD exists"
-      if: secrets.DB_NAME
-      run: echo "DB_NAME exists"
     - name: Download and setup migration
       run: |
         curl -L -o flyway-commandline.tar.gz "https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/11.1.0/flyway-commandline-11.1.0-linux-x64.tar.gz"
