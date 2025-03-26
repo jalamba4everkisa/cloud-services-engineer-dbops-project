@@ -16,7 +16,7 @@ jobs:
           secret="${{ secrets.DB_NAME }}"
           if [ -n "$secret" ]; then
             echo "Secret exists and has ${#secret} characters"
-            if [ "$secret" = "expected_value" ]; then
+            if [ "$secret" = "store" ]; then
               echo "Secret matches expected value"
             else
               echo "Secret does NOT match expected value"
